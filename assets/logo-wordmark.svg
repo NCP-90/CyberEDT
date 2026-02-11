@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="128" viewBox="0 0 560 128" role="img" aria-label="CyberEDT">
+  <title>CyberEDT</title>
+  <rect width="560" height="128" fill="#ffffff"/>
+  <rect x="24" y="34" width="512" height="60" rx="4" ry="4" fill="#000000"/>
+  <text x="280" y="64" fill="#ffffff" text-anchor="middle"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+        font-size="40" font-weight="700" dominant-baseline="middle">CyberEDT</text>
+</svg>

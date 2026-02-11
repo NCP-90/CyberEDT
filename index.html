@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <title>CyberEDT - Empowering India with Cybersecurity Education and Tools</title>
+
+    <!-- Load stylesheets immediately -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <!-- Critical CSS inlined -->
+    <style id="critical-css">
+        /* Team Section Styles */
+        .team-section {
+            padding: 5rem 0;
+            background-color: #f8fafc;
+        }
+
+        .team-section .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #e2e8f0;
+            transition: border-color 0.3s ease;
+        }
+
+        .team-card:hover .team-img-container {
+            border-color: #3b82f6;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+        }
+
+        .team-card h3 {
+            margin: 1rem 0 0.5rem;
+            color: #1e293b;
+            font-size: 1.4rem;
+        }
+
+        .team-card .role {
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-card .bio {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            min-height: 3em;
+        }
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #0077b5;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .linkedin-btn:hover {
+            background-color: #005f91;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .team-card {
+                padding: 1.5rem;
+            }
+        }
+
+        :root {
+            --primary-blue: #000000;
+            --primary-hover: #000000;
+            --text-primary: #000000;
+            /* changed to pure black */
+            --text-secondary: #4b5563;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --error: #dc2626;
+            --success: #10b981;
+            --focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.5);
+            --transition-base: all 0.2s ease-in-out;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Base styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Loading animation */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Hide content until loaded */
+        .content {
+            opacity: 0;
+        }
+
+        .loaded .content {
+            opacity: 1;
+        }
+
+        .loaded #loading {
+            display: none;
+        }
+
+        /* Add more critical styles as needed */
+    </style>
+
+    <!-- Favicon & App Icons -->
+    <!-- Primary favicon using LOGO_1.png (CyberEDT logo) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="LOGO_1.png?v=20251026">
+    <link rel="icon" type="image/png" sizes="16x16" href="LOGO_1.png?v=20251026">
+    <link rel="shortcut icon" type="image/png" href="LOGO_1.png?v=20251026">
+
+    <!-- SVG favicon with EDT branding -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000000'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,Segoe UI,Arial' font-size='24' font-weight='700' text-anchor='middle' fill='%23ffffff'%3EEDT%3C/text%3E%3C/svg%3E">
+
+    <!-- Fallback and additional sizes -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=20251026">
+    <link rel="icon" type="image/png" sizes="192x192" href="LOGO_1.png?v=20251026">
+    <link rel="apple-touch-icon" sizes="180x180" href="LOGO_1.png?v=20251026">
+    <link rel="icon" type="image/png" sizes="48x48" href="LOGO_1.png?v=20251026">
+
+    <!-- Web app manifest -->
+    <link rel="manifest" href="manifest.webmanifest?v=20251026">
+
+
+    <!-- Canonical & Social Meta -->
+    <link rel="canonical" href="https://www.cyberedt.com/">
+    <meta name="description"
+        content="CyberEDT - Cybersecurity education and training platform in India. Learn ethical hacking, penetration testing & cyber defense with hands-on training in Vadodara.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cyberedt.com/">
+    <meta property="og:title" content="CyberEDT - Cybersecurity education and training platform in India">
+    <meta property="og:description"
+        content="CyberEDT - Cybersecurity education and training platform in India. Hands-on cybersecurity training, ethical hacking courses, and cyber defense programs in Vadodara.">
+    <meta property="og:image" content="https://www.cyberedt.com/LOGO_1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@CyberEDT">
+    <meta name="twitter:creator" content="@CyberEDT">
+    <meta name="twitter:title" content="CyberEDT - Cybersecurity education and training platform in India">
+    <meta name="twitter:description"
+        content="CyberEDT - Cybersecurity education and training platform in India. Join our cybersecurity programs today!">
+    <meta name="twitter:image" content="https://www.cyberedt.com/LOGO_1.png">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content;">
+
+    <!-- Comprehensive Structured Data for SEO -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CyberEDT",
+        "url": "https://www.cyberedt.com/",
+        "logo": "https://www.cyberedt.com/LOGO_1.png",
+        "description": "Cybersecurity education and training platform in India, offering courses, training programs, and cybersecurity tools.",
+        "foundingDate": "2024",
+        "sameAs": [
+          "https://www.linkedin.com/company/cyberedt/",
+          "https://www.facebook.com/share/1Jgrbvv1ja/",
+          "https://x.com/CyberEDT?t=SKuyCvPr343_qT1To2_Lug&s=08",
+          "https://www.instagram.com/cyberedt_?igsh=eW9jaGM2eGp1bWMy",
+          "https://www.threads.com/@cyberedt_"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-99245-73706",
+          "contactType": "customer service",
+          "email": "help@cyberedt.com",
+          "availableLanguage": "English",
+          "contactHours": "24/7"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Vadodara",
+          "addressLocality": "Vadodara",
+          "addressRegion": "Gujarat",
+          "postalCode": "390001",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "CyberEDT",
+        "description": "Cybersecurity education and training organization specializing in ethical hacking, penetration testing, and cyber defense.",
+        "url": "https://www.cyberedt.com/",
+        "logo": "https://www.cyberedt.com/LOGO_1.png",
+        "educationalCredentialAwarded": "Cybersecurity Certification",
+        "hasEducationalUse": "Professional Development",
+        "teaches": [
+          "Ethical Hacking",
+          "Penetration Testing",
+          "Cyber Defense",
+          "Digital Security",
+          "Cybersecurity Awareness"
+        ],
+        "provider": {
+          "@type": "Organization",
+          "name": "CyberEDT"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://www.cyberedt.com/#organization",
+        "name": "CyberEDT",
+        "description": "Cybersecurity education and training company in Vadodara, Gujarat, India",
+        "url": "https://www.cyberedt.com/",
+        "telephone": "+91-99245-73706",
+        "email": "help@cyberedt.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Vadodara",
+          "addressLocality": "Vadodara",
+          "addressRegion": "Gujarat",
+          "postalCode": "390001",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 22.3072,
+          "longitude": 73.1812
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "25"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CyberEDT",
+        "url": "https://www.cyberedt.com/",
+        "description": "Cybersecurity education and training platform in India",
+        "inLanguage": "en-IN",
+        "copyrightHolder": {
+          "@type": "Organization",
+          "name": "CyberEDT"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.cyberedt.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Cybersecurity Education Services",
+        "description": "Comprehensive cybersecurity training, courses, and awareness programs",
+        "provider": {
+          "@id": "https://www.cyberedt.com/#organization"
+        },
+        "serviceType": "Education",
+        "areaServed": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "CyberEDT Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Cybersecurity Training Programs",
+                "description": "Professional cybersecurity training for schools, industry, and individuals"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Cybersecurity Awareness Programs",
+                "description": "Educational awareness sessions and workshops"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Defense Services",
+                "description": "CyberShield Lite, CyberRange Labs, and ProHack Assessment services"
+              }
+            }
+          ]
+        }
+      }
+    ]
+    </script>
+    <!-- Security headers like HSTS must be set at the server level. Duplicate CSP removed. -->
+
+    <!-- Enhanced meta tags for security and SEO -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="application-name" content="CyberEDT">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CyberEDT">
+
+    <!-- Additional SEO meta tags -->
+
+
+    <meta name="author" content="CyberEDT">
+    <meta name="language" content="en-IN">
+    <meta name="geo.region" content="IN-GJ">
+    <meta name="geo.placename" content="Vadodara, Gujarat, India">
+    <meta name="geo.position" content="22.3072;73.1812">
+    <meta name="ICBM" content="22.3072, 73.1812">
+
+    <!-- Enhanced Open Graph for better social sharing -->
+    <meta property="og:site_name" content="CyberEDT">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CyberEDT -Cybersecurity Education & Training in India">
+    <meta property="og:description"
+        content="Cybersecurity education platform offering courses, training, and tools. Learn ethical hacking, penetration testing, and cyber defense from industry experts in Vadodara, Gujarat.">
+    <meta property="og:url" content="https://www.cyberedt.com/">
+    <meta property="og:image" content="https://www.cyberedt.com/LOGO_1.png">
+    <meta property="og:image:alt" content="CyberEDT Logo - Cybersecurity Education Platform">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Enhanced Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@CyberEDT">
+    <meta name="twitter:creator" content="@CyberEDT">
+    <meta name="twitter:title" content="CyberEDT -Cybersecurity Education & Training in India">
+    <meta name="twitter:description"
+        content="Cybersecurity education platform offering courses, training, and tools. Learn ethical hacking, penetration testing, and cyber defense from industry experts in Vadodara, Gujarat.">
+    <meta name="twitter:image" content="https://www.cyberedt.com/LOGO_1.png">
+    <meta name="twitter:image:alt" content="CyberEDT Logo - Cybersecurity Education Platform">
+
+    <!-- Additional SEO enhancements -->
+    <link rel="alternate" hreflang="en-in" href="https://www.cyberedt.com/">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+
+    <!-- Sitemap and navigation aids -->
+    <link rel="sitemap" type="application/xml" href="https://www.cyberedt.com/sitemap.xml">
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="light dark">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- DNS prefetch for better performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+
+</head>
+
+<body>
+    <!-- Loading indicator -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Main content wrapper -->
+    <div class="content">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="/" aria-label="CyberEDT Home">
+                        <img src="assets/images/logo.png" alt="CyberEDT - Cybersecurity Education Platform in India"
+                            class="logo-img" loading="eager" decoding="async" height="32" width="120"
+                            fetchpriority="high">
+                    </a>
+                    <noscript>CyberEDT - Cybersecurity Education</noscript>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#vision" class="nav-link">Vision</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#defense" class="nav-link">Defense</a></li>
+                    <li><a href="#tools" class="nav-link">Tools</a></li>
+                    <li><a href="#connect" class="nav-link">EDT Connect</a></li>
+                    <li><a href="#team" class="nav-link">Our Team</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Cybersecurity Education & Training Platform in India - CyberEDT</h1>
+                <p>Building Cyber Intelligence For All — Comprehensive cybersecurity awareness, education, defense
+                    strategies, and cutting-edge tools to create a safer digital future for India.</p>
+                <a href="#vision" class="cta-button">Explore Our Cybersecurity Programs</a>
+            </div>
+            <div class="hero-visual">
+                <div class="cyber-grid"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About CyberEDT</h2>
+                <div class="about-content">
+                    <p>CyberEDT is a pioneering cybersecurity startup based in Vadodara, Gujarat, India, committed to
+                        transforming the digital defense landscape through comprehensive education, robust defense
+                        strategies, and innovative tools.</p>
+                    <p>We are building a unified cybersecurity platform that empowers learners, professionals, and
+                        organizations with hands-on training, real-time defense services, and AI-powered cyber solutions
+                        — all in one place.</p>
+                    <p>Our mission is to democratize cybersecurity knowledge and make digital safety accessible for
+                        individuals, businesses, and institutions across India and beyond.</p>
+                    <p>From awareness campaigns to professional defense services, CyberEDT is shaping a secure, skilled,
+                        and cyber-resilient future.</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Vadodara, Gujarat, India</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision" class="vision">
+            <div class="container">
+                <h2>Our Vision</h2>
+                <p class="vision-tagline">Building Cyber Intelligence For All</p>
+                <div class="edt-grid">
+                    <a href="#education" class="edt-card edt-link-card">
+                        <div class="edt-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Education</h3>
+                        <p>Comprehensive courses, awareness campaigns, and training programs to build cybersecurity
+                            knowledge from the ground up.</p>
+                    </a>
+                    <a href="#defense" class="edt-card edt-link-card">
+                        <div class="edt-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Defense</h3>
+                        <p>Managed protection strategies, penetration testing, and cyber labs to safeguard digital
+                            assets and infrastructure.</p>
+                    </a>
+                    <a href="#tools" class="edt-card edt-link-card">
+                        <div class="edt-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Tools</h3>
+                        <p>Innovative cybersecurity tools and resources designed to enhance digital security and threat
+                            detection capabilities.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose CyberEDT</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Expert-Led Training</h3>
+                        <p>Learn from industry professionals with real-world experience</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Hands-On Learning</h3>
+                        <p>Practical labs and simulations for immersive learning</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Industry Recognition</h3>
+                        <p>Certified programs recognized by leading organizations</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock assistance and guidance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education">
+            <div class="container">
+                <h2>Education Programs</h2>
+                <div class="education-tabs">
+                    <button class="tab-button active" data-tab="courses">Courses</button>
+                    <button class="tab-button" data-tab="campaigns">Campaigns</button>
+                    <button class="tab-button" data-tab="awareness">Awareness Programs</button>
+                    <button class="tab-button" data-tab="training">Training</button>
+                </div>
+
+                <div class="tab-content active" id="courses">
+                    <div class="courses-access-section">
+                        <div class="access-card">
+                            <div class="access-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Access Courses by CyberEDT</h3>
+                            <p>Explore our comprehensive collection of cybersecurity courses designed to build your
+                                expertise from fundamentals to advanced topics.</p>
+                            <button class="access-courses-btn" onclick="openCoursesPage()">
+                                <i class="fas fa-external-link-alt"></i>
+                                View All Courses
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="campaigns">
+                    <div class="education-grid">
+                        <div class="education-card">
+                            <h3>CyberSafety for Schools</h3>
+                            <p>Educational programs designed to teach students about online safety and digital
+                                citizenship.</p>
+                            <button class="course-btn" data-coming-soon="true">
+                                <i class="fas fa-clock"></i> Coming Soon
+                            </button>
+                        </div>
+                        <div class="education-card">
+                            <h3>Scam Awareness Drive for Elders</h3>
+                            <p>Targeted campaigns to help senior citizens identify and avoid online scams and fraud.</p>
+                            <button class="course-btn" data-coming-soon="true">
+                                <i class="fas fa-clock"></i> Coming Soon
+                            </button>
+                        </div>
+                        <div class="education-card">
+                            <h3>Social Media Safety Campaign</h3>
+                            <p>Awareness initiatives focused on safe social media practices and privacy protection.</p>
+                            <button class="course-btn" data-coming-soon="true">
+                                <i class="fas fa-clock"></i> Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="awareness">
+                    <div class="education-grid">
+                        <div class="education-card">
+                            <h3>Phishing Awareness Simulations</h3>
+                            <p>Interactive simulations to help identify and respond to phishing attempts.</p>
+                        </div>
+                        <div class="education-card">
+                            <h3>Data Privacy Workshops</h3>
+                            <p>Comprehensive workshops on data protection laws and privacy best practices.</p>
+                        </div>
+                        <div class="education-card">
+                            <h3>Cyber Hygiene Seminars</h3>
+                            <p>Regular seminars on maintaining good cybersecurity habits and practices.</p>
+                        </div>
+                    </div>
+
+                    <!-- Standalone centered Awareness Program card -->
+                    <div class="education-card awareness-highlight" style="margin-top: 2rem;">
+                        <h3>Cybersecurity Awareness Program (Vadodara)</h3>
+                        <p>Book an on-campus awareness session. Only location currently available: Parul University,
+                            Vadodara, Gujarat, India.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-map-marker-alt"></i> Parul University, Vadodara, Gujarat, India</li>
+                            <li><i class="fas fa-envelope"></i> Email: <a
+                                    href="mailto:niteshyadav@cyberedt.com">niteshyadav@cyberedt.com</a></li>
+                            <li><i class="fas fa-phone"></i> Phone: <a href="tel:+919924573706">+91 99245 73706</a></li>
+                        </ul>
+                        <div class="education-card-actions"
+                            style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; justify-content:center;">
+                            <a class="course-btn"
+                                href="mailto:niteshyadav@cyberedt.com?subject=Book%20Awareness%20Session%20-%20Vadodara&body=I%20would%20like%20to%20book%20an%20awareness%20session%20at%20Parul%20University%2C%20Vadodara.%20Please%20contact%20me.%0A%0AName%3A%20%0AOrganization%3A%20%0APhone%3A%20">
+                                <i class="fas fa-envelope"></i> Book via Email
+                            </a>
+                            <a class="course-btn" href="tel:+919924573706">
+                                <i class="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="training">
+                    <div class="education-grid">
+                        <div class="education-card">
+                            <h3>Hands-on Labs</h3>
+                            <p>Practical network attack and defense scenarios in controlled environments.</p>
+                        </div>
+                        <div class="education-card">
+                            <h3>Ethical Hacking Basics</h3>
+                            <p>Introduction to ethical hacking methodologies and penetration testing.</p>
+                        </div>
+                        <div class="education-card">
+                            <h3>Secure Coding Practices</h3>
+                            <p>Training on writing secure code and identifying common vulnerabilities.</p>
+                        </div>
+                    </div>
+
+                    <!-- Standalone centered Training Program booking card -->
+                    <div class="education-card awareness-highlight training-highlight" style="margin-top: 2rem;">
+                        <h3>Cybersecurity Training Programs (Vadodara)</h3>
+                        <p>Select the training type you need. Booking currently available at Parul University, Vadodara,
+                            Gujarat, India.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-map-marker-alt"></i> Parul University, Vadodara, Gujarat, India</li>
+                            <li><i class="fas fa-envelope"></i> Email: <a
+                                    href="mailto:niteshyadav@cyberedt.com">niteshyadav@cyberedt.com</a></li>
+                            <li><i class="fas fa-phone"></i> Phone: <a href="tel:+919924573706">+91 99245 73706</a></li>
+                        </ul>
+                        <div class="education-card-actions"
+                            style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; justify-content:center;">
+                            <a class="course-btn"
+                                href="mailto:niteshyadav@cyberedt.com?subject=Training%20Inquiry%20-%20Vadodara&body=I%20would%20like%20to%20book%20a%20Cybersecurity%20Training%20session%20at%20Parul%20University%2C%20Vadodara.%0A%0ATraining%20Type%3A%20School%20Level%20%2F%20Industry%20Level%20%2F%20Cyber%20Professionals%20%2F%20Normal%20Citizens%20%2F%20Demo%20for%20Students%0APreferred%20Dates%3A%20%0AOrganization%20%2F%20Institute%3A%20%0AContact%20No%3A%20">
+                                <i class="fas fa-envelope"></i> Book via Email
+                            </a>
+                            <a class="course-btn" href="tel:+919924573706">
+                                <i class="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Training types (black & white theme with badges) -->
+                    <div class="training-types">
+                        <div class="training-type-card">
+                            <span class="price-badge badge-free">Free</span>
+                            <h4>Demo for Students</h4>
+                            <p>Coming soon: a short introductory demo session designed for students. Limited seats.</p>
+                        </div>
+                        <div class="training-type-card">
+                            <span class="price-badge badge-paid">Paid</span>
+                            <h4>School Level Training</h4>
+                            <p>Age-appropriate cybersecurity fundamentals, safe internet use, and digital citizenship.
+                            </p>
+                        </div>
+                        <div class="training-type-card">
+                            <span class="price-badge badge-paid">Paid</span>
+                            <h4>Industry Level Training</h4>
+                            <p>Role-based security training for teams, compliance, and enterprise cyber hygiene.</p>
+                        </div>
+                        <div class="training-type-card">
+                            <span class="price-badge badge-paid">Paid</span>
+                            <h4>Cyber Professionals</h4>
+                            <p>Deep-dive hands-on sessions in red/blue teaming, threat hunting, and secure SDLC.</p>
+                        </div>
+                        <div class="training-type-card">
+                            <span class="price-badge badge-paid">Paid</span>
+                            <h4>Normal Citizens</h4>
+                            <p>Personal security best practices, fraud awareness, and privacy protection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Defense Services Section -->
+        <section id="defense" class="defense">
+            <div class="container">
+                <h2>Defense Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield"></i>
+                        </div>
+                        <h3>CyberShield Lite</h3>
+                        <p>Micro defense kit designed for small businesses and individuals, providing essential
+                            protection against common cyber threats.</p>
+                        <button type="button" class="course-btn cta-modern" id="open-csl-modal" aria-haspopup="dialog"
+                            aria-controls="csl-modal">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>CyberRange Labs</h3>
+                        <p>Simulated laboratory environments for practical hands-on training in cybersecurity scenarios
+                            and threat response.</p>
+                        <button type="button" class="course-btn cta-modern" id="open-crl-modal" aria-haspopup="dialog"
+                            aria-controls="crl-modal">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>ProHack Assessment</h3>
+                        <p>Professional penetration testing services by certified ethical hackers to assess application
+                            and website security.</p>
+                        <button type="button" class="course-btn cta-modern" id="open-pha-modal" aria-haspopup="dialog"
+                            aria-controls="pha-modal">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CyberShield Lite Modal -->
+        <div class="modal-overlay" id="csl-modal-overlay" aria-hidden="true">
+            <div class="modal" id="csl-modal" role="dialog" aria-modal="true" aria-labelledby="csl-modal-title">
+                <button class="modal-close" id="csl-modal-close" aria-label="Close">&times;</button>
+                <h3 id="csl-modal-title">CyberShield Lite</h3>
+                <p>A ready-to-use cybersecurity kit for individuals and small businesses.</p>
+                <ul>
+                    <li>Remote setup via AnyDesk (with consent) for easy installation.</li>
+                    <li>Three protection tiers: Base (essential), Medium (enhanced), Advanced (comprehensive).</li>
+                    <li>Protects against viruses, malware, phishing, and common cyber threats — simple, safe, and
+                        worry-free.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CyberRange Labs Modal -->
+        <div class="modal-overlay" id="crl-modal-overlay" aria-hidden="true">
+            <div class="modal" id="crl-modal" role="dialog" aria-modal="true" aria-labelledby="crl-modal-title">
+                <button class="modal-close" id="crl-modal-close" aria-label="Close">&times;</button>
+                <h3 id="crl-modal-title">CyberRange Labs</h3>
+                <p>A cloud-based cybersecurity training environment for learners and professionals.</p>
+                <ul>
+                    <li>Provides practical labs to enhance skills, test strategies, and simulate real-world attacks.
+                    </li>
+                    <li>Two tiers: Base Labs (free, beginner-friendly) and Advanced Labs (challenging, expert-level).
+                    </li>
+                    <li>Learn, practice, and improve your cyber defense abilities anytime, anywhere.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ProHack Assessment Modal -->
+        <div class="modal-overlay" id="pha-modal-overlay" aria-hidden="true">
+            <div class="modal" id="pha-modal" role="dialog" aria-modal="true" aria-labelledby="pha-modal-title">
+                <button class="modal-close" id="pha-modal-close" aria-label="Close">&times;</button>
+                <h3 id="pha-modal-title">ProHack Assessment</h3>
+                <p>Professional penetration testing service by certified ethical hackers.</p>
+                <ul>
+                    <li>Offers low, medium, and advanced enterprise packages to suit different needs.</li>
+                    <li>Identifies vulnerabilities in websites, apps, and networks before hackers do.</li>
+                    <li>Provides detailed reports and actionable recommendations for maximum security.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tools Section -->
+        <section id="tools" class="tools">
+            <div class="container">
+                <h2>Our Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3>PhishHunt</h3>
+                        <p>Advanced phishing detection and prevention tool to identify malicious emails and websites.
+                        </p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                        <h3>InstaAudit</h3>
+                        <p>Quick and comprehensive system security audit tool for rapid vulnerability assessment.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-eye-slash"></i>
+                        </div>
+                        <h3>HackTheFake</h3>
+                        <p>AI-powered fake news and misinformation detection system for digital content verification.
+                        </p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>CyberHelpline.ai</h3>
+                        <p>AI-powered helpdesk providing instant cybersecurity guidance and support.</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-vault"></i>
+                        </div>
+                        <h3>FraudVault</h3>
+                        <p>Comprehensive scam prevention system with real-time threat intelligence and protection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDT Connect Section -->
+        <section id="connect" class="connect">
+            <div class="container">
+                <h2>EDT Connect</h2>
+                <p>Stay connected with us on social media for the latest updates and cybersecurity insights.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/cyberedt/" target="_blank" rel="noopener noreferrer"
+                        class="social-link linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1Jgrbvv1ja/" target="_blank" rel="noopener noreferrer"
+                        class="social-link facebook">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://x.com/CyberEDT?t=SKuyCvPr343_qT1To2_Lug&s=08" target="_blank"
+                        rel="noopener noreferrer" class="social-link twitter">
+                        <i class="fab fa-x-twitter"></i>
+                        <span>X (Twitter)</span>
+                    </a>
+                    <a href="https://www.instagram.com/cyberedt_?igsh=eW9jaGM2eGp1bWMy" target="_blank"
+                        rel="noopener noreferrer" class="social-link instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.threads.com/@cyberedt_" target="_blank" rel="noopener noreferrer"
+                        class="social-link threads">
+                        <i class="fab fa-threads"></i>
+                        <span>Threads</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team-section">
+            <div class="container">
+                <h2>Meet the Team</h2>
+                <p class="section-subtitle">Our dedicated team of cybersecurity experts</p>
+
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-card" data-linkedin="https://www.linkedin.com/in/nitesh-yadav-6286b0291/">
+                        <div class="team-img-container">
+                            <img src="assets/images/team/nitesh_yadav.jpg?v=2" alt="Nitesh Yadav" class="team-img">
+                        </div>
+                        <h3>Nitesh Yadav</h3>
+                        <p class="role">Founder & CEO</p>
+                        <p class="bio">Cybersecurity and cloud security professional in training, with strong exposure
+                            to AWS and Oracle multi-cloud environments, driving CyberEDT’s vision for cyber education
+                            and defense.</p>
+                        <a href="https://www.linkedin.com/in/nitesh-yadav-6286b0291/" class="linkedin-btn"
+                            aria-label="Connect with Nitesh on LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i> Connect
+                        </a>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="team-card" data-linkedin="https://www.linkedin.com/in/dhruv-patel-9849802a6/">
+                        <div class="team-img-container">
+                            <img src="assets/images/team/dhruv_patel.jpg" alt="Dhruv Patel" class="team-img">
+                        </div>
+                        <h3>Dhruv Patel</h3>
+                        <p class="role">Co-Founder</p>
+                        <p class="bio">Cybersecurity practitioner specializing in networking, red teaming, and system
+                            security, with a strong interest in building practical and resilient cyber defense
+                            solutions.</p>
+                        <a href="https://www.linkedin.com/in/dhruv-patel-9849802a6/" class="linkedin-btn"
+                            aria-label="Connect with Dhruv on LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i> Connect
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>help@cyberedt.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+91 9924573706</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Vadodara, Gujarat, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required
+                                autocomplete="name">
+                            <span id="name-error" class="error-message" aria-live="assertive"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required
+                                autocomplete="email">
+                            <span id="email-error" class="error-message" aria-live="assertive"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="sr-only">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5"
+                                required></textarea>
+                            <span id="message-error" class="error-message" aria-live="assertive"></span>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <div id="success-message" class="success-message" aria-live="polite"></div>
+                        <div id="general-error" class="error-message" aria-live="assertive"></div>
+                        <div class="contact-fallback">
+                            If your email app didn't open, email us directly at
+                            <a href="mailto:help@cyberedt.com">help@cyberedt.com</a>.
+                        </div>
+                        <div class="contact-alt-providers">
+                            <span class="providers-label">Compose with:</span>
+                            <a id="gmail-link" href="#" target="_blank" rel="noopener"
+                                aria-label="Compose email in Gmail">Gmail</a>
+                            <span aria-hidden="true">·</span>
+                            <a id="outlook-link" href="#" target="_blank" rel="noopener"
+                                aria-label="Compose email in Outlook Web">Outlook Web</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 CyberEDT. All rights reserved</p>
+                <div class="legal-links" style="margin-top:10px;">
+                    <a href="privacy.html" class="nav-link">Privacy Policy</a> |
+                    <a href="terms.html" class="nav-link">Terms of Use</a>
+                </div>
+            </div>
+        </footer>
+    </div><!-- End of content wrapper -->
+
+    <!-- Security and trust indicators -->
+    <div class="security-badge" id="securityIndicator">
+        <span id="securityStatus">🔒 Secured</span>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script>
+        // Show content once everything is loaded
+        function init() {
+            document.documentElement.classList.add('loaded');
+            document.body.style.opacity = '1';
+        }
+
+        // Team section - card click handler
+        document.addEventListener('DOMContentLoaded', function () {
+            const teamCards = document.querySelectorAll('.team-card');
+
+            teamCards.forEach(card => {
+                card.addEventListener('click', function (e) {
+                    // Don't open link if clicking on the LinkedIn button (let the link handle it)
+                    if (e.target.closest('.linkedin-btn')) {
+                        return;
+                    }
+
+                    const linkedinUrl = this.getAttribute('data-linkedin');
+                    if (linkedinUrl) {
+                        window.open(linkedinUrl, '_blank');
+                    }
+                });
+            });
+        });
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        // Fallback in case load event doesn't fire
+        setTimeout(init, 3000);
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('ServiceWorker registered'))
+                    .catch(err => console.log('ServiceWorker registration failed: ', err));
+            });
+        }
+    </script>
+
+    <!-- Load main JavaScript -->
+    <script src="script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{
+    "functions": {
+        "api/*.js": {
+            "maxDuration": 10
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/api/scan",
+            "destination": "/api/scan.js"
+        }
+    ]
+}

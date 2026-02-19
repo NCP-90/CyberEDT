@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('no-scroll'); // Toggle scroll lock
     });
 
     // Logo refresh behavior (works on all pages with the navbar)
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.classList.remove('no-scroll'); // Remove scroll lock
         });
     });
 

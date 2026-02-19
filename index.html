@@ -64,7 +64,7 @@
         }
 
         .team-card:hover .team-img-container {
-            border-color: #3b82f6;
+            border-color: #666666;
         }
 
         .team-img {
@@ -85,7 +85,7 @@
         }
 
         .team-card .role {
-            color: #3b82f6;
+            color: #666666;
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 1rem;
@@ -104,7 +104,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            background-color: #0077b5;
+            background-color: #000000;
             color: white;
             padding: 0.6rem 1.2rem;
             border-radius: 6px;
@@ -116,7 +116,7 @@
         }
 
         .linkedin-btn:hover {
-            background-color: #005f91;
+            background-color: #333333;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -272,7 +272,7 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; worker-src 'self'; upgrade-insecure-requests;">
 
     <!-- Comprehensive Structured Data for SEO -->
     <script type="application/ld+json">
@@ -439,6 +439,8 @@
     <!-- Security headers like HSTS must be set at the server level. Duplicate CSP removed. -->
 
     <!-- Enhanced meta tags for security and SEO -->
+    <meta name="keywords"
+        content="Cybersecurity, Education, Training, India, Ethical Hacking, Penetration Testing, Cyber Defense, CyberEDT, Vadodara, Gujarat, Cyber Safety, Phishing Awareness, Network Security, Cyber Intelligence, Information Security">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="theme-color" content="#000000">
@@ -449,8 +451,6 @@
     <meta name="apple-mobile-web-app-title" content="CyberEDT">
 
     <!-- Additional SEO meta tags -->
-
-
     <meta name="author" content="CyberEDT">
     <meta name="language" content="en-IN">
     <meta name="geo.region" content="IN-GJ">
@@ -462,7 +462,7 @@
     <meta property="og:site_name" content="CyberEDT">
     <meta property="og:locale" content="en_IN">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CyberEDT -Cybersecurity Education & Training in India">
+    <meta property="og:title" content="CyberEDT - Cybersecurity Education & Training in India">
     <meta property="og:description"
         content="Cybersecurity education platform offering courses, training, and tools. Learn ethical hacking, penetration testing, and cyber defense from industry experts in Vadodara, Gujarat.">
     <meta property="og:url" content="https://www.cyberedt.com/">
@@ -475,7 +475,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@CyberEDT">
     <meta name="twitter:creator" content="@CyberEDT">
-    <meta name="twitter:title" content="CyberEDT -Cybersecurity Education & Training in India">
+    <meta name="twitter:title" content="CyberEDT - Cybersecurity Education & Training in India">
     <meta name="twitter:description"
         content="Cybersecurity education platform offering courses, training, and tools. Learn ethical hacking, penetration testing, and cyber defense from industry experts in Vadodara, Gujarat.">
     <meta name="twitter:image" content="https://www.cyberedt.com/LOGO_1.png">
@@ -489,11 +489,7 @@
 
     <!-- Sitemap and navigation aids -->
     <link rel="sitemap" type="application/xml" href="https://www.cyberedt.com/sitemap.xml">
-    <meta name="theme-color" content="#000000">
-    <meta name="color-scheme" content="light dark">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -908,42 +904,46 @@
             <div class="container">
                 <h2>Our Tools</h2>
                 <div class="tools-grid">
+                    <!-- Cyber Security Tools -->
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <i class="fas fa-fish"></i>
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3>PhishHunt</h3>
-                        <p>Advanced phishing detection and prevention tool to identify malicious emails and websites.
+                        <h3>Cyber Security Tools</h3>
+                        <p>Advanced tools for penetration testing, vulnerability assessment, and securing digital
+                            assets.</p>
+                        <!-- Future sub-categories will go here -->
+                        <button class="course-btn" onclick="alert('Tools coming soon!')"
+                            style="margin-top: auto; justify-content: center; width: 100%;">
+                            <i class="fas fa-arrow-right"></i> Explore
+                        </button>
+                    </div>
+
+                    <!-- Development Tools -->
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Development Tools</h3>
+                        <p>Essential utilities for developers, including code analysis, formatting, and debugging aids.
                         </p>
+                        <button class="course-btn" onclick="alert('Tools coming soon!')"
+                            style="margin-top: auto; justify-content: center; width: 100%;">
+                            <i class="fas fa-arrow-right"></i> Explore
+                        </button>
                     </div>
+
+                    <!-- Text Based Tools -->
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <i class="fas fa-search-plus"></i>
+                            <i class="fas fa-file-alt"></i>
                         </div>
-                        <h3>InstaAudit</h3>
-                        <p>Quick and comprehensive system security audit tool for rapid vulnerability assessment.</p>
-                    </div>
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-eye-slash"></i>
-                        </div>
-                        <h3>HackTheFake</h3>
-                        <p>AI-powered fake news and misinformation detection system for digital content verification.
-                        </p>
-                    </div>
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>CyberHelpline.ai</h3>
-                        <p>AI-powered helpdesk providing instant cybersecurity guidance and support.</p>
-                    </div>
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-vault"></i>
-                        </div>
-                        <h3>FraudVault</h3>
-                        <p>Comprehensive scam prevention system with real-time threat intelligence and protection.</p>
+                        <h3>Text Based Tools</h3>
+                        <p>Powerful text manipulation, encoding/decoding, and data processing utilities.</p>
+                        <button class="course-btn" onclick="alert('Tools coming soon!')"
+                            style="margin-top: auto; justify-content: center; width: 100%;">
+                            <i class="fas fa-arrow-right"></i> Explore
+                        </button>
                     </div>
                 </div>
             </div>

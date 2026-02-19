@@ -1,5 +1,5 @@
 // DOM Content Loaded with error handling and performance optimization
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Add skip to content functionality
     const skipLink = document.createElement('a');
     skipLink.href = '#main-content';
@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const logo = document.querySelector('.logo');
     const logoImg = document.querySelector('.logo-img');
-    
+
     // Performance: Use passive event listeners where possible
     const passiveOptions = { passive: true };
-    
+
     // Performance: Debounce scroll and resize events
     let resizeTimer;
     window.addEventListener('resize', () => {
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);
     }, passiveOptions);
 
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
         document.body.classList.toggle('no-scroll'); // Toggle scroll lock
     });
 
     // Logo refresh behavior (works on all pages with the navbar)
-    function refreshPage(e){
+    function refreshPage(e) {
         if (e) e.preventDefault();
         // Force reload from server where possible
         window.location.reload(true);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.setAttribute('role', 'button');
         logo.setAttribute('tabindex', '0');
         logo.addEventListener('click', refreshPage);
-        logo.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') refreshPage(e); });
+        logo.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') refreshPage(e); });
     }
     if (logoImg) {
         logoImg.addEventListener('click', refreshPage);
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.classList.remove('no-scroll'); // Remove scroll lock
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function smoothScrollTo(targetId, duration = 800) {
         const targetElement = document.querySelector(targetId);
         if (!targetElement) return;
-        
+
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 70;
         const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function easeInOutQuad(t, b, c, d) {
-            t /= d/2;
-            if (t < 1) return c/2*t*t + b;
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
             t--;
-            return -c/2 * (t*(t-2) - 1) + b;
+            return -c / 2 * (t * (t - 2) - 1) + b;
         }
 
         requestAnimationFrame(animation);
@@ -88,20 +88,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scrolling for internal navigation links with enhanced accessibility
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             // Only intercept in-page anchors
             if (targetId && targetId.startsWith('#')) {
                 e.preventDefault();
                 smoothScrollTo(targetId);
-                
+
                 // Update URL without page jump
                 if (history.pushState) {
                     history.pushState(null, null, targetId);
                 } else {
                     window.location.hash = targetId;
                 }
-                
+
                 // Focus the target element for keyboard users
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // CTA Button smooth scroll
     const ctaButton = document.querySelector('.cta-button');
     if (ctaButton) {
-        ctaButton.addEventListener('click', function(e) {
+        ctaButton.addEventListener('click', function (e) {
             e.preventDefault();
             const targetSection = document.querySelector('#education');
             if (targetSection) {
@@ -165,13 +165,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabContents = document.querySelectorAll('.tab-content');
 
     tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const targetTab = this.getAttribute('data-tab');
-            
+
             // Remove active class from all buttons and contents
             tabButtons.forEach(btn => btn.classList.remove('active'));
             tabContents.forEach(content => content.classList.remove('active'));
-            
+
             // Add active class to clicked button and corresponding content
             this.classList.add('active');
             const targetContent = document.getElementById(targetTab);
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Navbar scroll effect
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
             navbar.style.background = 'rgba(255, 255, 255, 0.98)';
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             try {
@@ -342,21 +342,21 @@ document.addEventListener('DOMContentLoaded', function() {
     function sanitizeInput(input) {
         if (typeof input !== 'string') return input;
         return input.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-                   .replace(/<[^>]*>/g, '')
-                   .replace(/javascript:/gi, '')
-                   .replace(/on\w+\s*=/gi, '')
-                   .replace(/[<>'"&]/g, (match) => {
-                       const entityMap = {
-                           '<': '<',
-                           '>': '>',
-                           '"': '"',
-                           "'": '&#x27;',
-                           '&': '&'
-                       };
-                       return entityMap[match];
-                   })
-                   .trim()
-                   .substring(0, 1000);
+            .replace(/<[^>]*>/g, '')
+            .replace(/javascript:/gi, '')
+            .replace(/on\w+\s*=/gi, '')
+            .replace(/[<>'"&]/g, (match) => {
+                const entityMap = {
+                    '<': '<',
+                    '>': '>',
+                    '"': '"',
+                    "'": '&#x27;',
+                    '&': '&'
+                };
+                return entityMap[match];
+            })
+            .trim()
+            .substring(0, 1000);
     }
 
     function validateForm(name, email, message) {
@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const generalErr = document.getElementById('general-error');
             if (generalErr) generalErr.textContent = 'Could not open your email app. Please click the link below or email us at help@cyberedt.com';
         } finally {
-            submitBtn.innerHTML = originalText;
+            submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }
     }
@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize Security Systems
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Log page load
         SecurityLogger.log('page_load');
 
@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
@@ -501,8 +501,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Active navigation link highlighting
     const sections = document.querySelectorAll('section[id]');
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
@@ -523,25 +523,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cursor-following glow effect for cyber-grid
     const cyberGrid = document.querySelector('.cyber-grid');
     if (cyberGrid) {
-        cyberGrid.addEventListener('mousemove', function(e) {
+        cyberGrid.addEventListener('mousemove', function (e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             // Update CSS custom properties for cursor position
             this.style.setProperty('--mouse-x', x + 'px');
             this.style.setProperty('--mouse-y', y + 'px');
         });
-        
+
         // Reset glow position when mouse leaves
-        cyberGrid.addEventListener('mouseleave', function() {
+        cyberGrid.addEventListener('mouseleave', function () {
             this.style.setProperty('--mouse-x', '50%');
             this.style.setProperty('--mouse-y', '50%');
         });
     }
 
     // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const scrolled = window.pageYOffset;
         const parallax = document.querySelector('.cyber-grid');
         if (parallax) {
@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const text = heroTitle.textContent;
         heroTitle.textContent = '';
         let i = 0;
-        
+
         function typeWriter() {
             if (i < text.length) {
                 heroTitle.textContent += text.charAt(i);
@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(typeWriter, 50);
             }
         }
-        
+
         // Start typing effect after a short delay
         setTimeout(typeWriter, 500);
     }
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Courses page: Back button handler (no inline JS)
     const backBtn = document.querySelector('.back-btn');
     if (backBtn) {
-        backBtn.addEventListener('click', function() {
+        backBtn.addEventListener('click', function () {
             if (window.history.length > 1) {
                 window.history.back();
             } else {
@@ -583,33 +583,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Courses page: Coming Soon buttons (no inline JS)
     document.querySelectorAll('.course-btn[data-coming-soon="true"]').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             alert('Course coming soon!');
         });
     });
 
     // Modal wiring for Defense Services popups
-    function wireModal(openId, overlayId, closeId){
+    function wireModal(openId, overlayId, closeId) {
         const openBtn = document.getElementById(openId);
         const overlay = document.getElementById(overlayId);
         const closeBtn = document.getElementById(closeId);
-        if(!openBtn || !overlay || !closeBtn) return;
-        function openModal(){
+        if (!openBtn || !overlay || !closeBtn) return;
+        function openModal() {
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
         }
-        function closeModal(){
+        function closeModal() {
             overlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }
         openBtn.addEventListener('click', openModal);
         closeBtn.addEventListener('click', closeModal);
-        overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
-        document.addEventListener('keydown', function onKey(e){ if(e.key === 'Escape') closeModal(); });
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', function onKey(e) { if (e.key === 'Escape') closeModal(); });
     }
-    wireModal('open-csl-modal','csl-modal-overlay','csl-modal-close');
-    wireModal('open-crl-modal','crl-modal-overlay','crl-modal-close');
-    wireModal('open-pha-modal','pha-modal-overlay','pha-modal-close');
+    wireModal('open-csl-modal', 'csl-modal-overlay', 'csl-modal-close');
+    wireModal('open-crl-modal', 'crl-modal-overlay', 'crl-modal-close');
+    wireModal('open-pha-modal', 'pha-modal-overlay', 'pha-modal-close');
 });
 
 // Utility Functions
@@ -622,17 +622,17 @@ function showMessage(message, type = 'success') {
     // Remove existing messages
     const existingMessages = document.querySelectorAll('.message');
     existingMessages.forEach(msg => msg.remove());
-    
+
     // Create new message element
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${type}-message show`;
     messageDiv.textContent = message;
-    
+
     // Insert after contact form
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.insertAdjacentElement('afterend', messageDiv);
-        
+
         // Auto-remove message after 5 seconds
         setTimeout(() => {
             messageDiv.remove();
@@ -642,7 +642,7 @@ function showMessage(message, type = 'success') {
 
 // Smooth scroll polyfill for older browsers
 if (!('scrollBehavior' in document.documentElement.style)) {
-    const smoothScrollPolyfill = function(target, duration = 1000) {
+    const smoothScrollPolyfill = function (target, duration = 1000) {
         const targetPosition = target.offsetTop - 70;
         const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
@@ -668,7 +668,7 @@ if (!('scrollBehavior' in document.documentElement.style)) {
 
     // Override smooth scroll for older browsers
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -692,7 +692,7 @@ function debounce(func, wait) {
 }
 
 // Apply debouncing to scroll events
-const debouncedScrollHandler = debounce(function() {
+const debouncedScrollHandler = debounce(function () {
     // Scroll-dependent operations can be added here if needed
 }, 10);
 
@@ -703,7 +703,7 @@ function preloadImages() {
     const imageUrls = [
         // Add any critical image URLs here
     ];
-    
+
     imageUrls.forEach(url => {
         const img = new Image();
         img.src = url;
@@ -719,7 +719,7 @@ function openCoursesPage() {
 }
 
 // Add keyboard navigation support
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     // ESC key closes mobile menu
     if (e.key === 'Escape') {
         const hamburger = document.querySelector('.hamburger');
@@ -739,7 +739,7 @@ function trapFocus(element) {
     const firstFocusableElement = focusableContent[0];
     const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Tab') {
             if (e.shiftKey) {
                 if (document.activeElement === firstFocusableElement) {

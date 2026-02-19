@@ -389,7 +389,11 @@ document.addEventListener('DOMContentLoaded', function () {
     async function submitSecureForm(name, email, message) {
         const submitBtn = document.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
-        submitBtn.innerHTML = '<span class="loading-spinner"></span> Sending...';
+        // Safer loading state without innerHTML
+        submitBtn.textContent = ' Sending...';
+        const spinner = document.createElement('span');
+        spinner.className = 'loading-spinner';
+        submitBtn.prepend(spinner);
         submitBtn.disabled = true;
 
         try {

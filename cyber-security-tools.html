@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Tools | CyberEDT - Advanced Security Tools</title>
+    <meta name="description"
+        content="Access CyberEDT's advanced cyber security tools including Phishing Analyzer, Vulnerability Scanners, and Threat Detection utilities.">
+    <link rel="canonical" href="https://www.cyberedt.com/cyber-security-tools.html">
+    <link rel="alternate" hreflang="en-in" href="https://www.cyberedt.com/cyber-security-tools.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CyberEDT">
+    <meta property="og:title" content="Cyber Security Tools | CyberEDT">
+    <meta property="og:description"
+        content="Advanced cyber security tools for professionals and individuals. Phishing Analyzer, Threat Detection, and more.">
+    <meta property="og:url" content="https://www.cyberedt.com/cyber-security-tools.html">
+    <meta property="og:image" content="https://www.cyberedt.com/LOGO_1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cyber Security Tools | CyberEDT">
+    <meta name="twitter:description" content="Advanced cyber security tools for professionals and individuals.">
+    <meta name="twitter:image" content="https://www.cyberedt.com/LOGO_1.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"
+        integrity="sha512-nCTWU5QdQdKjUHdKHybVZJ8Q6t3lKkrIqRliUqG1qNXhTpzMjOZJqTaCpjE5QOWyKXz4G+WTpVJ2jX6J6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+</head>
+
+<body>
+    <!-- Back Button -->
+    <button class="back-btn" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="courses-hero">
+        <div class="container">
+            <h1>Cyber Security Tools</h1>
+            <p>Advanced utilities to protect, analyze, and secure your digital presence.</p>
+        </div>
+    </section>
+
+    <!-- Tools Grid Container -->
+    <div class="courses-container">
+        <h2 class="section-title" style="color: black;">Available Tools</h2>
+        <p class="section-subtitle">Powerful tools designed for real-time threat detection and security analysis.</p>
+
+        <div class="courses-grid">
+            <!-- Phishing Analyzer Tool -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="course-meta">
+                        <h3 class="course-title">Phishing Analyzer</h3>
+                        <span class="course-level">Free Tool</span>
+                    </div>
+                </div>
+                <p class="course-description">
+                    A powerful real-time URL scanner that detects phishing attempts, malicious domains, and hidden
+                    threats using advanced heuristic analysis.
+                </p>
+                <div class="course-features">
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i>Real-time URL Scanning</li>
+                        <li><i class="fas fa-check"></i>Domain Reputation Check</li>
+                        <li><i class="fas fa-check"></i>Homograph Attack Detection</li>
+                        <li><i class="fas fa-check"></i>Detailed Risk Report</li>
+                    </ul>
+                </div>
+                <div class="course-footer">
+                    <span class="course-duration"><i class="fas fa-bolt"></i> Instant Analysis</span>
+                    <a href="Tools/phishing-analyzer/dist/index.html" class="course-btn" style="text-decoration: none;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Use Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- More tools can be added here -->
+
+            <!-- Placeholder for upcoming tool -->
+            <div class="course-card" style="opacity: 0.7;">
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="course-meta">
+                        <h3 class="course-title">Password Auditor</h3>
+                        <span class="course-level">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="course-description">
+                    Analyze the strength of your passwords against dictionary attacks and common patterns to ensure
+                    maximum account security.
+                </p>
+                <div class="course-footer">
+                    <span class="course-duration"><i class="fas fa-clock"></i> In Development</span>
+                    <button class="course-btn" disabled style="background: #000000; cursor: not-allowed;">
+                        <i class="fas fa-clock"></i>
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Simple script for back button if needed beyond inline onclick
+        document.addEventListener('DOMContentLoaded', function () {
+            const backBtn = document.querySelector('.back-btn');
+            if (backBtn) {
+                backBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (window.history.length > 1) {
+                        window.history.back();
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

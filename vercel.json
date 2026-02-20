@@ -1,13 +1,13 @@
 {
     "functions": {
-        "Tools/phishing-analyzer/api/*.js": {
+        "api/scan.js": {
             "maxDuration": 10
         }
     },
     "rewrites": [
         {
             "source": "/api/scan",
-            "destination": "/Tools/phishing-analyzer/api/scan.js"
+            "destination": "/api/scan.js"
         },
         {
             "source": "/Tools/phishing-analyzer/assets/:path*",

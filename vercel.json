@@ -10,16 +10,16 @@
             "destination": "/api/scan.js"
         },
         {
-            "source": "/Tools/phishing-analyzer/assets/:path*",
-            "destination": "/Tools/phishing-analyzer/dist/assets/:path*"
+            "source": "/tools/phishing-analyzer/assets/:path*",
+            "destination": "/tools/phishing-analyzer/dist/assets/:path*"
         },
         {
-            "source": "/Tools/phishing-analyzer",
-            "destination": "/Tools/phishing-analyzer/dist/index.html"
+            "source": "/tools/phishing-analyzer",
+            "destination": "/tools/phishing-analyzer/dist/index.html"
         },
         {
-            "source": "/Tools/phishing-analyzer/",
-            "destination": "/Tools/phishing-analyzer/dist/index.html"
+            "source": "/tools/phishing-analyzer/",
+            "destination": "/tools/phishing-analyzer/dist/index.html"
         }
     ]
 }

@@ -1,4 +1,4 @@
-const CACHE = 'cyberedt-v1';
+const CACHE = 'cyberedt-v2';
 const ASSETS = [
   '/',
   '/index.html',

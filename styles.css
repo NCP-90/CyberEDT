@@ -382,7 +382,8 @@ textarea:focus-visible,
     font-size: 0.9rem;
 }
 
-.course-btn {
+.course-btn,
+.tool-btn {
     background: #000000;
     color: #ffffff;
     padding: 12px 24px;
@@ -397,7 +398,8 @@ textarea:focus-visible,
     gap: 8px;
 }
 
-.course-btn:hover {
+.course-btn:hover,
+.tool-btn:hover {
     transform: translateY(-2px);
     background: #111111;
     border-color: #333333;

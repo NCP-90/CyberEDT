@@ -12,15 +12,23 @@
         },
         {
             "source": "/tools/phishing-analyzer/assets/:path*",
-            "destination": "/tools/phishing-analyzer/dist/assets/:path*"
+            "destination": "/Tools/phishing-analyzer/dist/assets/:path*"
+        },
+        {
+            "source": "/tools/phishing-analyzer/logo.svg",
+            "destination": "/Tools/phishing-analyzer/dist/logo.svg"
+        },
+        {
+            "source": "/tools/phishing-analyzer/logo.jpg",
+            "destination": "/Tools/phishing-analyzer/dist/logo.jpg"
         },
         {
             "source": "/tools/phishing-analyzer",
-            "destination": "/tools/phishing-analyzer/dist/index.html"
+            "destination": "/Tools/phishing-analyzer/dist/index.html"
         },
         {
             "source": "/tools/phishing-analyzer/",
-            "destination": "/tools/phishing-analyzer/dist/index.html"
+            "destination": "/Tools/phishing-analyzer/dist/index.html"
         }
     ]
 }

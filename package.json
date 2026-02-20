@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "cd tools/phishing-analyzer && npm install && npm run build"
+    "build": "cd Tools/phishing-analyzer && npm install && npm run build"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

@@ -231,18 +231,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         static async sendToLoggingService(logEntry) {
-            try {
-                await fetch('/api/logs/security', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Log-Type': 'security'
-                    },
-                    body: JSON.stringify(logEntry)
-                });
-            } catch (error) {
-                console.warn('Failed to send security log:', error);
-            }
+            // API endpoint does not exist in static build.
+            // Disabling fetch to prevent 404 errors.
+            // console.log('Security Log (Local):', logEntry); 
         }
 
         static storeLocally(logEntry) {

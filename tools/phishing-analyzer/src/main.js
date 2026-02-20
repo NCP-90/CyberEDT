@@ -1,5 +1,9 @@
+import { inject } from '@vercel/analytics';
 import './style.css';
 import { PhishingAnalyzer } from './analyzer';
+
+// Initialize Vercel Analytics
+inject();
 
 // Simple icon fallback - using SVG strings instead of lucide
 const icons = {

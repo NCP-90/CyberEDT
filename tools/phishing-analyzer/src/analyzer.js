@@ -324,9 +324,9 @@ export class PhishingAnalyzer {
                 results.domainInfo = this.analyzeDomainDetails(domain);
             }
         } catch (error) {
-            console.error('API Connection Error:', error);
-            // Fallback: Simulate if fetch fails
+            console.warn('API Endpoint Unavailable (Local Mode): Falling back to simulated analysis data.');
             results.domainInfo = this.analyzeDomainDetails(domain);
+            results.isSimulated = true;
         }
 
         // Final Score capping
